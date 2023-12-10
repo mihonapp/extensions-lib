@@ -37,7 +37,7 @@ interface ResolvableSource : Source {
 }
 
 sealed interface UriType {
-    data object Manga : UriType
-    data object Chapter : UriType
-    data object Unknown : UriType
+    object Manga : UriType
+    object Chapter : UriType
+    object Unknown : UriType
 }
