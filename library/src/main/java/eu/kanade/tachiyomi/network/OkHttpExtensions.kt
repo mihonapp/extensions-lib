@@ -10,6 +10,8 @@ fun Call.asObservableSuccess(): Observable<Response> = throw Exception("Stub!")
 
 suspend fun Call.await(): Response = throw Exception("Stub!")
 
+suspend fun Call.awaitSuccess(): Response = throw Exception("Stub!")
+
 /**
  * Exception that handles HTTP codes considered not successful by OkHttp.
  * Use it to have a standardized error message in the app across the extensions.
