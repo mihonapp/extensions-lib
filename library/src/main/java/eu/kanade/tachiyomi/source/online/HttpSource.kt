@@ -163,6 +163,17 @@ abstract class HttpSource : CatalogueSource {
     protected abstract fun latestUpdatesParse(response: Response): MangasPage
 
     /**
+     * Get the updated details for a manga.
+     * Normally it's not needed to override this method.
+     *
+     * @param manga the manga to update.
+     * @return the updated manga.
+     */
+    override suspend fun getMangaDetails(manga: SManga): SManga {
+        throw Exception("Stub!")
+    }
+
+    /**
      * Returns an observable with the updated details for a manga. Normally it's not needed to
      * override this method.
      *
@@ -190,6 +201,17 @@ abstract class HttpSource : CatalogueSource {
     protected abstract fun mangaDetailsParse(response: Response): SManga
 
     /**
+     * Get all the available chapters for a manga.
+     * Normally it's not needed to override this method.
+     *
+     * @param manga the manga to update.
+     * @return the chapters for the manga.
+     */
+    override suspend fun getChapterList(manga: SManga): List<SChapter> {
+        throw Exception("Stub!")
+    }
+
+    /**
      * Returns an observable with the updated chapter list for a manga. Normally it's not needed to
      * override this method.
      *
@@ -215,6 +237,17 @@ abstract class HttpSource : CatalogueSource {
      * @param response the response from the site.
      */
     protected abstract fun chapterListParse(response: Response): List<SChapter>
+
+    /**
+     * Get the list of pages a chapter has. Pages should be returned
+     * in the expected order; the index is ignored.
+     *
+     * @param chapter the chapter.
+     * @return the pages for the chapter.
+     */
+    override suspend fun getPageList(chapter: SChapter): List<Page> {
+        throw Exception("Stub!")
+    }
 
     /**
      * Returns an observable with the page list for a chapter.
@@ -246,6 +279,17 @@ abstract class HttpSource : CatalogueSource {
      * Returns an observable with the page containing the source url of the image. If there's any
      * error, it will return null instead of throwing an exception.
      *
+     * @since extensions-lib 1.5
+     * @param page the page whose source image has to be fetched.
+     */
+    open suspend fun getImageUrl(page: Page): String {
+        throw Exception("Stub!")
+    }
+
+    /**
+     * Returns an observable with the page containing the source url of the image. If there's any
+     * error, it will return null instead of throwing an exception.
+     *
      * @param page the page whose source image has to be fetched.
      */
     open fun fetchImageUrl(page: Page): Observable<String> {
@@ -270,11 +314,13 @@ abstract class HttpSource : CatalogueSource {
     protected abstract fun imageUrlParse(response: Response): String
 
     /**
-     * Returns an observable with the response of the source image.
+     * Returns the response of the source image.
+     * Typically does not need to be overridden.
      *
+     * @since extensions-lib 1.5
      * @param page the page whose source image has to be downloaded.
      */
-    fun fetchImage(page: Page): Observable<Response> {
+    open suspend fun getImage(page: Page): Response {
         throw Exception("Stub!")
     }
 
