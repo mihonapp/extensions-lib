@@ -10,6 +10,9 @@ fun Call.asObservableSuccess(): Observable<Response> = throw Exception("Stub!")
 
 suspend fun Call.await(): Response = throw Exception("Stub!")
 
+/**
+ * @since extensions-lib 1.5
+ */
 suspend fun Call.awaitSuccess(): Response = throw Exception("Stub!")
 
 /**

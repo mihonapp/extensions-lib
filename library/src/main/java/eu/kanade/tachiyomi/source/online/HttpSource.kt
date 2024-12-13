@@ -206,7 +206,6 @@ abstract class HttpSource : CatalogueSource {
      *
      * @param manga the manga to update.
      * @return the chapters for the manga.
-     * @throws LicensedMangaChaptersException if a manga is licensed and therefore no chapters are available.
      */
     override suspend fun getChapterList(manga: SManga): List<SChapter> {
         throw Exception("Stub!")
@@ -238,13 +237,6 @@ abstract class HttpSource : CatalogueSource {
      * @param response the response from the site.
      */
     protected abstract fun chapterListParse(response: Response): List<SChapter>
-
-    /**
-     * Parses the response from the site and returns a SChapter Object.
-     *
-     * @param response the response from the site.
-     */
-    protected abstract fun chapterPageParse(response: Response): SChapter
 
     /**
      * Get the list of pages a chapter has. Pages should be returned

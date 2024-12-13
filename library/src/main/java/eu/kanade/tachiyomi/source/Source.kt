@@ -22,6 +22,11 @@ interface Source {
     val name: String
 
     /**
+     * An ISO 639-1 compliant language code (two letters in lower case).
+     */
+    val lang: String
+
+    /**
      * Get the updated details for a manga.
      *
      * @since extensions-lib 1.4
