@@ -10,6 +10,7 @@ interface CatalogueSource : Source {
     /**
      * An ISO 639-1 compliant language code (two letters in lower case).
      */
+    @Deprecated("Use language instead", ReplaceWith("language"))
     val lang: String
 
     /**
@@ -39,9 +40,4 @@ interface CatalogueSource : Source {
      * @param page the page number to retrieve.
      */
     fun fetchLatestUpdates(page: Int): Observable<MangasPage>
-
-    /**
-     * Returns the list of filters for the source.
-     */
-    fun getFilterList(): FilterList
 }
