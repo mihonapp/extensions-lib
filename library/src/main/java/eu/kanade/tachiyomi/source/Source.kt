@@ -5,6 +5,7 @@ import eu.kanade.tachiyomi.source.model.MangasPage
 import eu.kanade.tachiyomi.source.model.Page
 import eu.kanade.tachiyomi.source.model.SChapter
 import eu.kanade.tachiyomi.source.model.SManga
+import mihon.source.model.Listing
 import rx.Observable
 
 /**
@@ -40,6 +41,22 @@ interface Source {
      * Indicates if the source supports search filters
      */
     val hasSearchFilters: Boolean
+
+    /**
+     * returns available [Listing]
+     *
+     * @since extensions-lib 1.5
+     */
+    fun getListings(): List<Listing>
+
+    /**
+     * Get a page with list of manga corresponding to the listing
+     *
+     * @since extensions-lib 1.5
+     * @param listing the Listing to get
+     * @param page the page number to retrieve
+     */
+    suspend fun getMangaListing(listing: Listing, page: Int): MangasPage = throw Exception("Stub!")
 
     /**
      * Returns the list of filters for the source.

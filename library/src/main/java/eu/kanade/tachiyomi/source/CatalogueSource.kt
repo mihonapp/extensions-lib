@@ -23,7 +23,7 @@ interface CatalogueSource : Source {
      *
      * @param page the page number to retrieve.
      */
-    fun fetchPopularManga(page: Int): Observable<MangasPage>
+    fun fetchPopularManga(page: Int): Observable<MangasPage> = throw Exception("Stub!")
 
     /**
      * Returns an observable containing a page with a list of manga.
@@ -32,18 +32,18 @@ interface CatalogueSource : Source {
      * @param query the search query.
      * @param filters the list of filters to apply.
      */
-    fun fetchSearchManga(page: Int, query: String, filters: FilterList): Observable<MangasPage>
+    fun fetchSearchManga(page: Int, query: String, filters: FilterList): Observable<MangasPage> = throw Exception("Stub!")
 
     /**
      * Returns an observable containing a page with a list of latest manga updates.
      *
      * @param page the page number to retrieve.
      */
-    fun fetchLatestUpdates(page: Int): Observable<MangasPage>
+    fun fetchLatestUpdates(page: Int): Observable<MangasPage> = throw Exception("Stub!")
 
     /**
      * Returns the list of filters for the source.
      */
     @Deprecated("Use the new suspend variant instead", ReplaceWith("getSearchFilters"))
-    fun getFilterList(): FilterList
+    fun getFilterList(): FilterList = throw Exception("Stub!")
 }
