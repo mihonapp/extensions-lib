@@ -31,7 +31,7 @@ fun OkHttpClient.Builder.rateLimit(
 ): OkHttpClient.Builder = throw Exception("Stub!")
 
 /**
- * An OkHttp interceptor that handles rate limiting.
+ * An OkHttp interceptor that handles global rate limiting.
  *
  * Examples:
  *
@@ -62,7 +62,7 @@ fun OkHttpClient.Builder.rateLimit(
  * @param permits [Int]     Number of requests allowed within a period of units.
  * @param period [Duration] The limiting duration. Defaults to 1.seconds.
  */
-fun OkHttpClient.Builder.rateLimitHost(
+fun OkHttpClient.Builder.rateLimit(
     httpUrl: HttpUrl,
     permits: Int,
     period: Duration = 1.seconds,
@@ -82,7 +82,7 @@ fun OkHttpClient.Builder.rateLimitHost(
  * @param permits [Int]     Number of requests allowed within a period of units.
  * @param period [Duration] The limiting duration. Defaults to 1.seconds.
  */
-fun OkHttpClient.Builder.rateLimitHost(
+fun OkHttpClient.Builder.rateLimit(
     url: String,
     permits: Int,
     period: Duration = 1.seconds,
