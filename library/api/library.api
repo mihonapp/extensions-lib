@@ -454,6 +454,7 @@ public abstract class eu/kanade/tachiyomi/source/online/HttpSource : eu/kanade/t
 	protected abstract fun latestUpdatesRequest (I)Lokhttp3/Request;
 	protected abstract fun mangaDetailsParse (Lokhttp3/Response;)Leu/kanade/tachiyomi/source/model/SManga;
 	public fun mangaDetailsRequest (Leu/kanade/tachiyomi/source/model/SManga;)Lokhttp3/Request;
+	public fun modifyImageRequest (Lokhttp3/HttpUrl;Lmihonx/model/ImageProxyServer;)Lokhttp3/HttpUrl;
 	protected abstract fun pageListParse (Lokhttp3/Response;)Ljava/util/List;
 	protected fun pageListRequest (Leu/kanade/tachiyomi/source/model/SChapter;)Lokhttp3/Request;
 	protected abstract fun popularMangaParse (Lokhttp3/Response;)Leu/kanade/tachiyomi/source/model/MangasPage;
@@ -494,6 +495,15 @@ public abstract class eu/kanade/tachiyomi/source/online/ParsedHttpSource : eu/ka
 public final class eu/kanade/tachiyomi/util/JsoupExtensionsKt {
 	public static final fun asJsoup (Lokhttp3/Response;Ljava/lang/String;)Lorg/jsoup/nodes/Document;
 	public static synthetic fun asJsoup$default (Lokhttp3/Response;Ljava/lang/String;ILjava/lang/Object;)Lorg/jsoup/nodes/Document;
+}
+
+public abstract class mihonx/model/ImageProxyServer {
+	public abstract fun apply (Lokhttp3/HttpUrl;)Lokhttp3/HttpUrl;
+}
+
+public final class mihonx/model/ImageProxyServer$ZeroMS : mihonx/model/ImageProxyServer {
+	public fun <init> ()V
+	public fun apply (Lokhttp3/HttpUrl;)Lokhttp3/HttpUrl;
 }
 
 public final class mihonx/network/RateLimitKt {

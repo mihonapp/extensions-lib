@@ -3,8 +3,10 @@ package eu.kanade.tachiyomi.source.online
 import eu.kanade.tachiyomi.network.NetworkHelper
 import eu.kanade.tachiyomi.source.CatalogueSource
 import eu.kanade.tachiyomi.source.model.*
+import mihonx.model.ImageProxyServer
 import mihonx.source.model.UserAgentType
 import okhttp3.Headers
+import okhttp3.HttpUrl
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.Response
@@ -285,6 +287,10 @@ abstract class HttpSource : CatalogueSource {
      * @param page the chapter whose page list has to be fetched
      */
     protected open fun imageRequest(page: Page): Request {
+        throw RuntimeException("Stub!")
+    }
+
+    open fun modifyImageRequest(url: HttpUrl, proxy: ImageProxyServer): HttpUrl {
         throw RuntimeException("Stub!")
     }
 
